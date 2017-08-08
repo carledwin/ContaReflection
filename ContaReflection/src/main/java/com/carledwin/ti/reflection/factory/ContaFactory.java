@@ -4,10 +4,7 @@ import com.carledwin.ti.reflection.model.ContaAbstract;
 import com.carledwin.ti.reflection.model.ContaCorrente;
 import com.carledwin.ti.reflection.model.ContaPoupanca;
 
-public class ContaFactory {
-
-	private static final String CORRENTE = "8765";
-	private static final String POUPANCA = "0987";
+public class ContaFactory extends ContaAbstract{
 
 	public static ContaAbstract getInstance(String string) {
 		ContaAbstract retorno = null;
@@ -25,10 +22,6 @@ public class ContaFactory {
 		}
 		
 		return retorno;
-	}
-
-	private static String getTipo(String string) {
-		return string.substring(2, 6);
 	}
 
 }
