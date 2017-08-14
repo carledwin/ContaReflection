@@ -2,9 +2,13 @@ package com.carledwin.ti.reflection.factory.test;
 
 import static org.junit.Assert.assertTrue;
 
+import java.math.BigDecimal;
+
 import org.junit.Test;
 
 import com.carledwin.ti.reflection.factory.ContaFactory;
+import com.carledwin.ti.reflection.factory.exceptions.LimiteInvalidoException;
+import com.carledwin.ti.reflection.factory.exceptions.LimiteNaoInformadoException;
 import com.carledwin.ti.reflection.model.ContaAbstract;
 import com.carledwin.ti.reflection.model.ContaCorrente;
 import com.carledwin.ti.reflection.model.ContaPoupanca;
@@ -51,5 +55,25 @@ public class TestContaFactory {
 				assertTrue("Numero de conta poupanca correto:  " + poupanca.getNumero(), numeroContaPoupanca == poupanca.getNumero());
 				System.out.println("Conta POUPANCA numero: " + poupanca.getNumero());
 			}
+	}
+	
+	@Test(expected = LimiteInvalidoException.class)
+	public void testaLimiteAcimaDoPermitido() throws NoSuchFieldException, SecurityException {
+		ContaCorrente contaCorrente =  (ContaCorrente) ContaFactory.getInstance("ss8765rfrd");
+		contaCorrente.setLimite(new BigDecimal("12500.01"));
+		contaCorrente.validaLimite();
+	}
+	
+	@Test
+	public void testaLimiteValido() throws NoSuchFieldException, SecurityException {
+		ContaCorrente contaCorrente =  (ContaCorrente) ContaFactory.getInstance("ss8765rfrd");
+		contaCorrente.setLimite(new BigDecimal("12500.00"));
+		assertTrue(contaCorrente.validaLimite());
+	}
+	
+	@Test(expected = LimiteNaoInformadoException.class)
+	public void testaLimiteNaoInformado() throws NoSuchFieldException, SecurityException {
+		ContaCorrente contaCorrente =  (ContaCorrente) ContaFactory.getInstance("ss8765rfrd");
+		assertTrue(contaCorrente.validaLimite());
 	}
 }
