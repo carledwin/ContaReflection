@@ -1,4 +1,4 @@
-package com.carledwin.ti.reflection.factory.exceptions;
+package com.carledwin.ti.reflection.exceptions;
 
 public class LimiteNaoInformadoException extends RuntimeException {
 

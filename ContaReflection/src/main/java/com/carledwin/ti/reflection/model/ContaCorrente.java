@@ -4,8 +4,8 @@ import java.lang.reflect.Field;
 import java.math.BigDecimal;
 
 import com.carledwin.ti.reflection.annotations.Limite;
-import com.carledwin.ti.reflection.factory.exceptions.LimiteInvalidoException;
-import com.carledwin.ti.reflection.factory.exceptions.LimiteNaoInformadoException;
+import com.carledwin.ti.reflection.exceptions.LimiteInvalidoException;
+import com.carledwin.ti.reflection.exceptions.LimiteNaoInformadoException;
 
 public class ContaCorrente extends ContaAbstract {
 

@@ -6,9 +6,9 @@ import java.math.BigDecimal;
 
 import org.junit.Test;
 
+import com.carledwin.ti.reflection.exceptions.LimiteInvalidoException;
+import com.carledwin.ti.reflection.exceptions.LimiteNaoInformadoException;
 import com.carledwin.ti.reflection.factory.ContaFactory;
-import com.carledwin.ti.reflection.factory.exceptions.LimiteInvalidoException;
-import com.carledwin.ti.reflection.factory.exceptions.LimiteNaoInformadoException;
 import com.carledwin.ti.reflection.model.ContaAbstract;
 import com.carledwin.ti.reflection.model.ContaCorrente;
 import com.carledwin.ti.reflection.model.ContaPoupanca;
